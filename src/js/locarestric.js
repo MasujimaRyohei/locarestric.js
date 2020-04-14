@@ -2,8 +2,8 @@ function getLocation(success, error) {
     navigator.geolocation.getCurrentPosition(
         function (position) {
             var currentLocation = {
-                latitude: Math.floor(orgRound(position.coords.latitude, 1000) * 100) / 100,
-                longitude: Math.floor(orgRound(position.coords.longitude, 1000) * 100) / 100// * 100) / 100
+                latitude: orgRound(position.coords.latitude, 1000),
+                longitude: orgRound(position.coords.longitude, 1000)
             };
             success(currentLocation);
         },
