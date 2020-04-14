@@ -1,7 +1,10 @@
 function getLocation(success, error) {
     navigator.geolocation.getCurrentPosition(
         function (position) {
-            var currentLocation = { latitude: orgRound(position.coords.latitude, 1000), longitude: orgRound(position.coords.longitude, 1000) };
+            var currentLocation = {
+                latitude: Math.floor(orgRound(position.coords.latitude, 1000) * 100) / 100,
+                longitude: Math.floor(orgRound(position.coords.longitude, 1000) * 100) / 100// * 100) / 100
+            };
             success(currentLocation);
         },
         function (err) {
@@ -31,4 +34,3 @@ function orgRound(value, base) {
     num = Math.round(num);
     return num / base;
 }
-

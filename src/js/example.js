@@ -5,7 +5,7 @@ function exampleOutput() {
     const currentCoordsElement = document.getElementById("current-coords");
     const targetCoordsElement = document.getElementById("target-coords");
     const resultElement = document.getElementById("result");
-    const shibuhouseLocation = { latitude: 35.655, longitude: 139.696 }
+    const shibuhouseLocation = { latitude: Math.floor(35.655 * 100) / 100, longitude: Math.floor(139.696 * 100) / 100 }
 
     getLocation(function (position) {
         currentCoordsElement.innerHTML = position.latitude + ", " + position.longitude;
